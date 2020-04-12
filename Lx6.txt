@@ -1,0 +1,68 @@
+C#企业级开发技术练习6答题卡
+
+班级：     信息管理一班
+姓名：     陈正阳
+学号：     20190307139
+
+注：请将答案放置在序号下方。*/
+
+（一）using System;
+
+namespace ConsoleApp3
+{
+    class Teacher<T>
+    {
+        public void fild(string fieldName,T t)
+        {
+            Console.WriteLine(value: $"{fieldName }:{t},类型是{t,GetType().Name }");
+        }
+    }
+    class Program
+    { 
+
+        static void Main(string[] args)
+        {
+            Teacher<string> stu1 = new Teacher<string>();
+            stu1.fild("姓名","zhao");
+            Teacher<Decimal > stu2 = new Teacher<Decimal>();
+            stu2.fild("工资", 8202.34M);
+            Teacher<Boolean > stu3 = new Teacher<Boolean>();
+            stu3.fild("编制", false);
+            Teacher<Single > stu4 = new Teacher<Single>();
+            stu4.fild("评价", 90.23);
+            Teacher<DateTime > stu5 = new Teacher<DateTime >();
+            stu4.fild("工作日期", 2001/8/31 0:00:00);
+        }
+    }
+}
+
+
+
+（二）using System;
+
+namespace ConsoleApp4
+{
+    interface IPay<P, Q>
+    {
+        void Log(P x, Q y);
+    }
+    class Employee<T> : IPay<T, string>
+    {
+        public void Log(T pay, string name) =>
+            Console.WriteLine($"{name}:{pay },类型是{pay.GetType().Name}");
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Log<int> c1 = new Log<int>();
+            c1.OutPut("年终奖", 30000);
+            Log<Decimal> c2 = new Log<Decimal>;
+            c2.OutPut("核增绩效", 54321.67);
+        }
+    }
+}
+
+
+
+
